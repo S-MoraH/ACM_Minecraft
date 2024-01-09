@@ -1,0 +1,30 @@
+{
+
+
+  "item.minermod.bagel": "Bagel",
+  "item.minermod.pink_donut": "Pink Donut",
+
+  "block.minermod.acm_block": "Block of ACM",
+  "block.minermod.acm_ore":"ACMium Ore",
+  "block.minermod.deepslate_acm_ore": "Deepslate ACMium Ore",
+  "block.minermod.endstone_zircon_ore": "Endstone Zircon Ore",
+  "block.minermod.netherrack_zircon_ore": "Netherrack Zircon Ore",
+  "item.minermod.raw_acmium": "Raw ACMium",
+  "item.minermod.acmium":"ACMium Ingot",
+
+  "item.minermod.acmium_sword": "ACMium Sword",
+  "item.minermod.acmium_pickaxe": "ACMium Pickaxe",
+  "item.minermod.acmium_axe": "ACMium Axe",
+  "item.minermod.acmium_hoe": "ACMium Hoe",
+  "item.minermod.acmium_hammer": "ACMium Hammer",
+
+  "item.minermod.acmium_helmet": "ACMium Helmet",
+  "item.minermod.acmium_chestplate": "ACMium Chestplate",
+  "item.minermod.acmium_leggings": "ACMium Leggings",
+  "item.minermod.acmium_boots": "ACMium Boots",
+
+  "item.minermod.chomper_spawn_egg": "Chomper Spawn Egg",
+
+
+  "itemGroup.ModTab": "ACMium Tutorial Tab"
+}

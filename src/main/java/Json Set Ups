@@ -1,0 +1,204 @@
+Entities ->
+animation.json:
+Comes from files needed for an entity when it was created/animated
+- contains the position information needed to perform the animation
+
+geo.json:
+Comes from files needed for an entity when it was created/animated
+- contains the geometry information needed to perform the animation
+
+texture.png:
+Comes from files needed for an entity when it was created/animated
+- image of the texture for the entity
+
+
+Lang.json ->
+en_us.json:
+Takes a "key": "value",
+where the key is the type.modName.name_of_item": and the value is "In-game name"
+ex:
+ - "item.modname.itemName": " Name seen in-game"
+    - "item.minermod.bagel": "Bagel",
+      "item.minermod.acmium.pickaxe": "ACMium Pickaxe"
+        or
+      "block.minermod.acm_ore": "ACMium ore"
+
+Name the modded tab in-game
+    - "itemGroup.ModTab": "ACMium Tutorial Tab"
+
+BlockStates.json ->
+syntax:
+{
+  "variants": {
+    "": { "model":  "minermod:block/acm_block"}
+  }
+}
+- takes a key variant:
+    - holds a default ("") key
+        - holds a model key that holds value of "mod_name":"path to block texture"
+tells minecraft that texture can change (placing it down (block) and picking it up (item)
+
+Blocks.json ->
+syntax:
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "modname:block/block_name"
+  }                     |
+}                       |
+                        |__ (path to texture.png)
+- takes a parent key: type
+- takes a textures key: another key "all": "mod_name":"path to block texture"
+                                     |
+                                     |-> (indicates what sides to texture)
+
+Items.json ->
+syntax:
+{
+  "parent": "mod_name:block/block_name"
+}
+
+if an item is a block too, then just have to reference the block.json
+- takes a parent key: with a value of "mod_name":"path to block texture" - - -^
+
+if it is just an item
+syntax:
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mod_name:item/item_name"
+  }
+}
+
+- where it takes a parent key: type/generated
+- takes a textures key: another key "layer0": "mod_name":"path to item texture"
+                                     |
+                                     |-> (make it the default texture)
+
+--------------------------
+data for mods - >
+
+Recipes.json ->
+syntax:
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "mod_name:mod_item"
+    },
+    "X": {
+      "item": "mod_name:mod_item"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X#X",
+    " # "
+  ],
+  "result": {
+    "item": "mod_name:mod_item"
+  }
+}
+
+- takes a type key with a value "minecraft:crafting_shaped" / "minecraft:crafting_shapeless" /
+    "minecraft:crafting_shaped"/ "minecraft:smelting"
+- a key object, that contains other objects that is used to create an object
+    - contains an identifier key "#": with a value of another object
+        - key is the type of object it is: with the value of the mod_name: mod_item
+- takes a pattern key: with a value of 3x3 array, where the values are the identifiers created
+    by the key object above. Each index corresponds to the crafting table grid
+- takes a result key: with a value of another object that contains an item key with
+ the value of the mod_name: mod_item
+
+syntax v2:
+{
+  "type": "minecraft:smelting",
+  "ingredient": [
+    {"item": "mod_name: mod_item"}
+  ],
+  "result":
+  {
+    "item": mod_name: mod_item"
+  },
+  "experience": 0.3,
+  "cookingtime": 500
+}
+
+- smelting differs in that it takes a ingredient key with a value of an array that holds
+    an object with an item key: with the value"mod_name: mod_item"
+- also takes a key of experience: value of a float
+- also takes a key of cookingtime: value of a int
+
+
+minables.json ->
+syntax:
+{
+  "replace": false,
+  "values": [
+    "mod_name: mod_block,
+    "mod_name: mod_block,
+    "mod_name: mod_ore,
+    "mod_name: mod_ore
+  ]
+}
+
+- takes an object that has a replace key: with a value of true or false
+    - replaces default values
+- takes a value key: with a value of an array of "mod_name: mod_block/ore
+    - makes it so that block or ore can be broken by that tool
+
+needs_ore_tool.json
+syntax:
+{
+  "replace": false,
+  "values": [
+    "mod_name: mod_block,
+    "mod_name: mod_block,
+    "mod_name: mod_ore,
+    "mod_name: mod_ore
+  ]
+}
+
+- takes an object that has a replace key: with a value of true or false
+    - replaces default values
+- takes a value key: with a value of an array of "mod_name: mod_block/ore
+    - * makes it so that block or ore can be broken by that tool and this specific tier *
+
+biome_modifier.json ->
+syntax:
+{
+  "type": "forge:add_features",  ---------------------> (being added to minecraft)
+  "biomes": "#minecraft:is_location", ---------------------> (where its being generated)
+  "features": "mod_name:modded_ore/block_placed",-----> (what is being generated)
+  "step": "underground_ores"            --------------> (when it is being generated)
+}
+
+
+loot_tables blocks.json ->
+{
+  "type": "mod_name: mod_item",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mod_name: mod_item"
+        }
+      ]
+    }
+  ]
+}
+
+- lets you set what happens when a block is destroyed
+    - when this block is destroyed it drops the item version of the block
+
+
+
+
+
+
+
+tutorial: https://www.youtube.com/watch?v=ONyOsUzcwRw&list=PLaevjqy3Xufbm1BWij55IAQMdSj2J_FGC&index=19&ab_channel=TurtyWurty
+
+

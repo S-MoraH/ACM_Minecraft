@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "X": {
+      "item": "minermod:acmium"
+    }
+  },
+  "pattern": [
+    "XXX",
+    "X X",
+    "   "
+  ],
+  "result": {
+    "item": "minermod:acmium_helmet"
+  }
+}

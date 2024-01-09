@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "minermod:acm_block",
+    "minermod:acm_ore",
+    "minermod:deepslate_acm_ore",
+    "minermod:netherrack_zircon_ore"
+  ]
+}

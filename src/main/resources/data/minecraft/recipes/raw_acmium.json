@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": [
+    {"item": "minermod:raw_acmium"}
+  ],
+  "result":
+  {
+    "item": "minermod:acmium"
+  },
+  "experience": 0.3,
+  "cookingtime": 500
+}
